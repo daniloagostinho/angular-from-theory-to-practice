@@ -1,0 +1,8 @@
+<section>
+  <ul>
+    <li *ngFor="let joke of jokes">
+      {{joke.setup}}
+      <p [hidden]="jokes.hide">card text</p>{{joke.publishin}}
+    </li>
+  </ul>
+</section>
