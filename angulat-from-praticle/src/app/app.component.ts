@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
       }
     ];
   }
+
   ngOnInit() {
     console.log('objeto do pai:', this.jokesObj);
   }
@@ -33,8 +34,8 @@ export class AppComponent implements OnInit {
     this.hide = !this.hide;
   }
 
+  // função para receber emit Output do Filho
   reciverFeedback(feed) {
-    console.log('foi emitido o evento e chegou no pai>>>> ', feed);
+    console.log('Foi emitido o evento e chegou no pai >>>> ', feed);
   }
-
 }
