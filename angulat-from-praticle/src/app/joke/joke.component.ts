@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-joke',
@@ -8,25 +8,16 @@ import { Component, OnInit } from '@angular/core';
 
 export class JokeComponent implements OnInit {
 
-  jokes: Object[];
+  @Input() arrayPai;
+  @Output() feedback: EventEmitter<any> = new EventEmitter();
 
-  constructor() {
-    this.jokes = [
-      {
-        setup: 'Alguma coisa aqui...',
-        publishin: 'concluido!'
-      },
-      {
-        setup: 'Alguma coisa aqui...',
-        publishin: 'concluido!',
-      },
-      {
-        setup: 'Alguma coisa aqui...',
-        publishin: 'concluido!',
-      }
-    ];
-  }
   ngOnInit() {
-    console.log(this.jokes);
+    console.log('recebido do pai', this.arrayPai);
+    console.log('dados');
   }
+
+  isFeedback() {
+    this.feedback.emit({nome: 'Bixão', idade: 30});
+  }
+
 }

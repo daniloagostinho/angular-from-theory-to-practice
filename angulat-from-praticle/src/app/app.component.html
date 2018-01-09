@@ -1,1 +1,16 @@
-<app-joke></app-joke>
+<section>
+  <ul>
+    <li *ngFor="let joke of jokes">
+
+      <p class="card" [hidden]="hide">Texto do card</p>{{joke.publishin}}
+
+      <button (click)="toggle(joke)">
+        Tell me component
+      </button>
+
+    </li>
+  </ul>
+</section>
+
+<app-joke #index [arrayPai]="jokesObj" (feedback)="reciverFeedback($event)" ></app-joke>
+

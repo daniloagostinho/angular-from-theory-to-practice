@@ -1,8 +1,12 @@
+<!-- {{nome}} -->
+
 <section>
-  <ul>
-    <li *ngFor="let joke of jokes">
-      {{joke.setup}}
-      <p [hidden]="jokes.hide">card text</p>{{joke.publishin}}
-    </li>
-  </ul>
+
+<div *ngFor="let j of arrayPai">
+  <b>Nome</b>{{j.nome}} {{j.sobreNome}} <br>
+  <a class="pure-button pure-button-primary" href="#" (click)="isFeedback()">Open</a>
+  <button class="pure-button pure-button-primary">Off</button>
+
+</div>
+
 </section>
