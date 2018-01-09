@@ -7,7 +7,6 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 
 export class JokeComponent implements OnInit {
-
   // recebe dados do pai
   @Input() arrayPai;
 
@@ -16,13 +15,14 @@ export class JokeComponent implements OnInit {
 
   ngOnInit() {
     console.log('recebido do pai', this.arrayPai);
-    console.log('dados');
   }
 
   // função de emissão de evento
   isFeedback() {
     // emite o evento
-    this.feedback.emit({nome: 'Bixão', idade: 30});
+    this.feedback.emit(this.arrayPai);
+    this.feedback.emit({nome: 'Carlota', senha: 123});
   }
 
 }
+

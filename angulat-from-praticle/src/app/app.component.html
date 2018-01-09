@@ -12,4 +12,8 @@
   </ul>
 </section>
 
-<app-joke #index [arrayPai]="jokesObj" (feedback)="reciverFeedback($event)" ></app-joke>
+<div *ngFor="let j of jokesObj">
+  <app-joke #index [arrayPai]="jokesObj" (feedback)="reciverFeedback($event)" ></app-joke>
+</div>
+
+
