@@ -1,0 +1,15 @@
+section {
+  width: 600px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+div {
+  padding:  2em;
+  background: #ddd;
+  margin: 20px;
+}
+
+li {
+  list-style: none;
+}
