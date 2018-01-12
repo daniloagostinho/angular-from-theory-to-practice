@@ -1,5 +1,5 @@
 import { JokeListComponent } from './joke-list/joke-list.component';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { ChildComponent } from './child/child.component';
 
@@ -11,6 +11,9 @@ import { ChildComponent } from './child/child.component';
 export class AppComponent implements OnInit {
   @ViewChild(ChildComponent) childChild: ChildComponent;
   @ViewChild(JokeListComponent) jlist: JokeListComponent;
+
+  // ler variaveis de ambiente
+  @ViewChild('local') local: ElementRef;
 
 
   jokesObj: Object[] = [
@@ -38,6 +41,8 @@ export class AppComponent implements OnInit {
     // tslint:disable-next-line:no-unused-expression
     console.log(this.childChild.nome);
     console.log(this.childChild.sobreNome = 'Emerson');
+
+    console.log(this.local.nativeElement.style.backgroundColor = 'red');
   }
 
   toggle(joke) {
