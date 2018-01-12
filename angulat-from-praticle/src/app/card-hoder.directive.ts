@@ -9,18 +9,24 @@ export class CardHoderDirective {
   // toda vez que sair um evento HostListener atualize o valor da variavel ishovering
   // @HostBinding('style.border') border: string;
 
-  @HostListener('click') onmouseenter() {
+  @HostListener('click') onclick() {
     const card = this.elementRef.nativeElement.querySelector('.card-text');
-    this.border = 'red';
+    this.background = 'red';
   }
+
+  @HostListener('mouseenter') onmouseenter() {
+    const card = this.elementRef.nativeElement.querySelector('.card-text');
+    this.background = 'green';
+  }
+
 
   @HostListener('mouseleave') onMouseEnter() {
     const card = this.elementRef.nativeElement.querySelector('.card-text');
-    this.border = 'green';
+    this.background = 'blue';
   }
 
   // tslint:disable-next-line:member-ordering
-  @HostBinding('style.backgroundColor') border: string;
+  @HostBinding('style.backgroundColor') background: string;
 
   // @HostListener('click') onHover() {
   //   console.log('cliquei!!');

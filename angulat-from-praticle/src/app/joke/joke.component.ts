@@ -7,6 +7,9 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 
 export class JokeComponent implements OnInit {
+
+  cor = 'vermelho';
+
   // recebe dados do pai
   @Input() arrayPai;
 

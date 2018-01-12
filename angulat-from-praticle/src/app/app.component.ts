@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { JokeListComponent } from './joke-list/joke-list.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  @ViewChild(ChildComponent) childChild: ChildComponent;
+  @ViewChild(JokeListComponent) jlist: JokeListComponent;
+
+
   jokesObj: Object[] = [
     {
       nome: 'Danilo',
@@ -27,6 +34,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log('objeto do pai:', this.jokesObj);
+    this.adicionaText();
+    // tslint:disable-next-line:no-unused-expression
+    console.log(this.childChild.nome);
+    console.log(this.childChild.sobreNome = 'Emerson');
   }
 
   toggle(joke) {
@@ -40,4 +51,7 @@ export class AppComponent implements OnInit {
     //   console.log(item, indice);
   }
 
+  adicionaText() {
+    this.childChild.addText('dsds');
+  }
 }
