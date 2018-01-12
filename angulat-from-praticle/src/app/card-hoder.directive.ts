@@ -5,25 +5,38 @@ import { Directive, ElementRef, Renderer, HostListener, HostBinding  } from '@an
   selector: '[appCardHoder]'
 })
 export class CardHoderDirective {
+  isActive: boolean;
   // toda vez que sair um evento HostListener atualize o valor da variavel ishovering
-  @HostBinding('class.card-outline-primary') private ishovering: boolean;
-  @HostListener('click') onHover() {
-    console.log('cliquei!!');
+  // @HostBinding('style.border') border: string;
 
+  @HostListener('click') onmouseenter() {
     const card = this.elementRef.nativeElement.querySelector('.card-text');
-    const section = this.elementRef.nativeElement.querySelector('.card-section');
-
-    this.renderer.setElementStyle(card, 'backgroundColor', 'green');
-    this.renderer.setElementStyle(section, 'backgroundColor', 'orange');
-
-    this.ishovering = true;
+    this.border = 'red';
   }
+
+  @HostListener('mouseleave') onMouseEnter() {
+    const card = this.elementRef.nativeElement.querySelector('.card-text');
+    this.border = 'green';
+  }
+
+  // tslint:disable-next-line:member-ordering
+  @HostBinding('style.backgroundColor') border: string;
+
+  // @HostListener('click') onHover() {
+  //   console.log('cliquei!!');
+
+  //   const card = this.elementRef.nativeElement.querySelector('.card-text');
+  //   const section = this.elementRef.nativeElement.querySelector('.card-section');
+
+  //   this.renderer.setElementStyle(card, 'backgroundColor', 'green');
+  //   this.renderer.setElementStyle(section, 'backgroundColor', 'orange');
+  // }
 
   constructor(
     private elementRef: ElementRef,
     private renderer: Renderer) {
     // elementRef.nativeElement.style = 'color: red';
-    console.log(this.ishovering);
+    console.log('valor da variavel ishovering:');
 
     renderer.setElementStyle(elementRef.nativeElement, 'backgroundColor', 'purple');
 
